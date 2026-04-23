@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=800"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    width:800px;
+    background:#080810;
+    font-family:'PingFang SC','Helvetica Neue',Arial,sans-serif;
+    color:#fff;
+    padding:0;
+  }
+  /* HERO */
+  .hero{
+    background:linear-gradient(160deg,#0d0d20 0%,#130820 40%,#0a1020 100%);
+    padding:64px 60px 56px;
+    text-align:center;
+    border-bottom:1px solid rgba(245,200,66,0.15);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);
+    width:600px;height:300px;
+    background:radial-gradient(ellipse,rgba(245,200,66,0.12),transparent 70%);
+  }
+  .hero-badge{
+    display:inline-block;
+    border:1px solid rgba(245,200,66,0.4);
+    color:#f5c842;font-size:11px;font-weight:700;letter-spacing:3px;
+    padding:6px 20px;border-radius:20px;margin-bottom:28px;
+    text-transform:uppercase;
+  }
+  .hero h1{
+    font-size:42px;font-weight:900;line-height:1.15;
+    background:linear-gradient(135deg,#fff 30%,#f5c842);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    margin-bottom:16px;
+  }
+  .hero-sub{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:36px;line-height:1.6;}
+  .hero-stats{display:flex;justify-content:center;gap:48px;}
+  .stat{text-align:center;}
+  .stat-num{font-size:32px;font-weight:900;color:#f5c842;display:block;}
+  .stat-label{font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;display:block;}
+
+  /* WHY ATTEND */
+  .why{
+    background:linear-gradient(135deg,rgba(245,200,66,0.06),rgba(123,47,190,0.06));
+    border-bottom:1px solid rgba(245,200,66,0.12);
+    padding:52px 60px;
+  }
+  .section-label{font-size:11px;font-weight:700;letter-spacing:3px;color:#f5c842;text-transform:uppercase;margin-bottom:12px;}
+  .why h2{font-size:28px;font-weight:900;margin-bottom:32px;line-height:1.3;}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .why-card{
+    background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px;padding:20px 22px;
+  }
+  .why-card .icon{font-size:24px;margin-bottom:10px;}
+  .why-card h3{font-size:15px;font-weight:800;color:#f5c842;margin-bottom:6px;}
+  .why-card p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;}
+
+  /* TOUR */
+  .section{padding:52px 60px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .section h2{font-size:26px;font-weight:900;margin-bottom:8px;}
+  .section-desc{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.6;}
+  .city-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .city-card{
+    background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);
+    border-radius:10px;padding:14px 12px;text-align:center;
+  }
+  .city-flag{font-size:22px;margin-bottom:6px;}
+  .city-name{font-size:12px;font-weight:700;color:rgba(255,255,255,0.85);}
+  .city-date{font-size:10px;color:rgba(255,255,255,0.35);margin-top:3px;}
+
+  /* CONTEST PHASES */
+  .phases{display:flex;flex-direction:column;gap:16px;}
+  .phase{
+    display:flex;gap:20px;align-items:flex-start;
+    background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);
+    border-radius:14px;padding:22px 24px;
+  }
+  .phase-num{
+    min-width:44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;font-weight:900;flex-shrink:0;
+  }
+  .p1{background:rgba(245,200,66,0.15);color:#f5c842;border:1px solid rgba(245,200,66,0.3);}
+  .p2{background:rgba(247,37,133,0.12);color:#f7258b;border:1px solid rgba(247,37,133,0.3);}
+  .p3{background:rgba(79,142,247,0.12);color:#4f8ef7;border:1px solid rgba(79,142,247,0.3);}
+  .phase-body h3{font-size:16px;font-weight:800;margin-bottom:4px;}
+  .phase-body .meta{font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:8px;letter-spacing:1px;}
+  .phase-body p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;}
+  .phase-body .highlight{color:#fff;font-weight:700;}
+
+  /* PRIZES */
+  .prizes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px;}
+  .prize{border-radius:14px;padding:22px 16px;text-align:center;}
+  .prize-gold{background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.25);}
+  .prize-silver{background:rgba(180,180,180,0.06);border:1px solid rgba(180,180,180,0.18);}
+  .prize-bronze{background:rgba(184,115,51,0.07);border:1px solid rgba(184,115,51,0.2);}
+  .prize-icon{font-size:28px;margin-bottom:8px;}
+  .prize-rank{font-size:13px;font-weight:900;margin-bottom:10px;}
+  .rg{color:#f5c842;}.rs{color:#C0C0C0;}.rb{color:#CD7F32;}
+  .prize-item{font-size:13px;color:rgba(255,255,255,0.75);line-height:2;}
+  .prize-cash{font-size:20px;font-weight:900;color:#fff;margin:6px 0;}
+
+  /* CTA */
+  .cta{
+    background:linear-gradient(135deg,#0d0820,#0a1520);
+    padding:56px 60px;text-align:center;
+    border-top:1px solid rgba(245,200,66,0.15);
+  }
+  .cta h2{font-size:30px;font-weight:900;margin-bottom:12px;
+    background:linear-gradient(135deg,#fff,#f5c842);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .cta p{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.7;}
+  .cta-btn{
+    display:inline-block;
+    background:linear-gradient(135deg,#f5c842,#e8a020);
+    color:#000;font-size:15px;font-weight:900;letter-spacing:1px;
+    padding:14px 40px;border-radius:40px;text-decoration:none;
+    margin-bottom:20px;
+  }
+  .cta-url{font-size:13px;color:#f5c842;letter-spacing:1px;}
+
+  /* DIVIDER */
+  .divider{height:1px;background:linear-gradient(to right,transparent,rgba(245,200,66,0.15),transparent);margin:0 60px;}
+
+  /* FOOTER */
+  footer{padding:24px 60px;text-align:center;border-top:1px solid rgba(255,255,255,0.05);}
+  footer img{height:32px;opacity:0.7;margin-bottom:8px;}
+  footer p{font-size:11px;color:rgba(255,255,255,0.2);}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="logo.png" alt="Xavvi" style="height:48px;margin-bottom:28px;display:block;margin-left:auto;margin-right:auto;"/>
+  <div class="hero-badge">🌏 2026 Web4 网红经济发布会 · 诚邀出席</div>
+  <h1>Web4 网红经济发布会</h1>
+  <p class="hero-sub" style="font-size:20px;font-weight:700;color:rgba(255,255,255,0.85);">币圈最大的 Web4 实体经济网红平台</p>
+  <p class="hero-sub" style="margin-top:8px;">11国亚洲巡演 × 全球加密小姐大赛 × Las Vegas 10万人电音总决赛<br/>一场让100万人强制持币的 Web4 盛典</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">11</span><span class="stat-label">巡演城市</span></div>
+    <div class="stat"><span class="stat-num">500+</span><span class="stat-label">全球参赛选手</span></div>
+    <div class="stat"><span class="stat-num">100K</span><span class="stat-label">Vegas 现场人数</span></div>
+    <div class="stat"><span class="stat-num">$3M</span><span class="stat-label">冠军总奖金</span></div>
+  </div>
+</div>
+
+<!-- WHY ATTEND -->
+<div class="why">
+  <div class="section-label">为什么你必须来</div>
+  <h2>4个理由，让每一个币圈大佬<br/>都不能错过这次巡演</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="icon">💰</div>
+      <h3>强制持币飞轮</h3>
+      <p>报名费用BFC支付、门票只能用Creator Token购买——每一个参与者都被强制持币。100万持币目标，不是营销，是机制。</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">🌐</div>
+      <h3>网红流量直接变资产</h3>
+      <p>每位选手发行自己的Creator Token，粉丝购买即是投资。500名选手×平均3,000粉丝=150万新用户进入Web4生态。</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">📣</div>
+      <h3>品牌主的最强广告位</h3>
+      <p>第二轮周榜前3名投资者，获得100名选手全媒体宣传曝光整整一周。用BFC买Creator Token，等于免费拿到百人网红联投广告。</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">🎯</div>
+      <h3>现场即是决策现场</h3>
+      <p>巡演私人说明会：合伙人/MCN机构/投资人/Miss Crypto本地合作方。30-50人闭门，直接与Peter Wu一对一洽谈。</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- TOUR CITIES -->
+<div class="section">
+  <div class="section-label">Phase 1 · 2026年5月10日出发</div>
+  <h2>🌏 亚洲11城巡演</h2>
+  <p class="section-desc">34天 · 每城3天 · 私人说明会 + 合伙人洽谈 + Miss Crypto海选<br/>5月10日 LAX出发，6月13日返回</p>
+  <div class="city-grid">
+    <div class="city-card"><div class="city-flag">🇭🇰</div><div class="city-name">香港</div><div class="city-date">5/11–13</div></div>
+    <div class="city-card"><div class="city-flag">🇹🇼</div><div class="city-name">台北</div><div class="city-date">5/14–16</div></div>
+    <div class="city-card"><div class="city-flag">🇯🇵</div><div class="city-name">东京</div><div class="city-date">5/17–19</div></div>
+    <div class="city-card"><div class="city-flag">🇰🇷</div><div class="city-name">济州岛</div><div class="city-date">5/20–22</div></div>
+    <div class="city-card"><div class="city-flag">🇲🇾</div><div class="city-name">吉隆坡</div><div class="city-date">5/23–25</div></div>
+    <div class="city-card"><div class="city-flag">🇸🇬</div><div class="city-name">新加坡</div><div class="city-date">5/26–28</div></div>
+    <div class="city-card"><div class="city-flag">🇹🇭</div><div class="city-name">曼谷</div><div class="city-date">5/29–31</div></div>
+    <div class="city-card"><div class="city-flag">🇰🇭</div><div class="city-name">金边</div><div class="city-date">6/1–3</div></div>
+    <div class="city-card"><div class="city-flag">🇻🇳</div><div class="city-name">胡志明市</div><div class="city-date">6/4–6</div></div>
+    <div class="city-card"><div class="city-flag">🇱🇰</div><div class="city-name">斯里兰卡</div><div class="city-date">6/7–9</div></div>
+    <div class="city-card"><div class="city-flag">🇮🇩</div><div class="city-name">巴厘岛</div><div class="city-date">6/10–12</div></div>
+    <div class="city-card" style="background:rgba(245,200,66,0.05);border-color:rgba(245,200,66,0.2);">
+      <div class="city-flag">✈️</div><div class="city-name" style="color:#f5c842;">返回 LAX</div><div class="city-date">6/13</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONTEST PHASES -->
+<div class="section">
+  <div class="section-label">Phase 2–3 · 2026年7月–9月</div>
+  <h2>👑 全球加密小姐大赛</h2>
+  <p class="section-desc">三轮淘汰赛 · 500选手 · 强制持币机制 · Las Vegas总决赛</p>
+  <div class="phases">
+    <div class="phase">
+      <div class="phase-num p1">1</div>
+      <div class="phase-body">
+        <h3>市值争霸</h3>
+        <div class="meta">7月 · 30天 · 全球500名选手</div>
+        <p>每位选手发行 <span class="highlight">1亿枚个人Creator Token（总量固定）</span>，初始流通5%，其余锁仓按需释放。<br/>
+        市值 = 价格 × 1亿枚总量。<br/>粉丝用BFC购买选手Token → BFC需求爆发。30天市值排名前100晋级。</p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-num p2">2</div>
+      <div class="phase-body">
+        <h3>影响力周赛</h3>
+        <div class="meta">8月 · 4周4轮 · 100名选手</div>
+        <p>每周对选手Creator Token <span class="highlight">投资排名前3的投资者</span>，获得全部100名选手全媒体曝光整整一周。<br/>
+        评分 = 市值30% + 影响力70%（社媒覆盖+新持币数+交易量+媒体）。<br/>每周前10晋级，共40人进决赛。</p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-num p3">3</div>
+      <div class="phase-body">
+        <h3>Las Vegas 总决赛</h3>
+        <div class="meta">2026年9月 · 10万人现场 · 全球直播</div>
+        <p>40名决赛选手拼命动员粉丝购票。<span class="highlight">门票只能用选手Creator Token购买</span>。<br/>
+        票价：线上$50 / VIP $500 / VVIP $2,000 / 白金VIP $15,000，全部等值BFC结算。<br/>
+        <span class="highlight">门票销量 = 决赛排名。</span>卖票最多者夺冠。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PRIZES -->
+<div class="section">
+  <div class="section-label">冠军奖项</div>
+  <h2>🏆 奖项设置</h2>
+  <p class="section-desc">门票销量决定名次。粉丝每一张票，都在为选手冲榜。</p>
+  <div class="prizes-grid">
+    <div class="prize prize-gold">
+      <div class="prize-icon">🥇</div>
+      <div class="prize-rank rg">冠军</div>
+      <div class="prize-cash">$300万</div>
+      <div class="prize-item">BFC 100万枚</div>
+      <div class="prize-item" style="color:#f5c842;font-size:12px;">全球品牌代言人</div>
+    </div>
+    <div class="prize prize-silver">
+      <div class="prize-icon">🥈</div>
+      <div class="prize-rank rs">亚军</div>
+      <div class="prize-cash">$50万</div>
+      <div class="prize-item">BFC 30万枚</div>
+    </div>
+    <div class="prize prize-bronze">
+      <div class="prize-icon">🥉</div>
+      <div class="prize-rank rb">季军</div>
+      <div class="prize-cash">$10万</div>
+      <div class="prize-item">BFC 5万枚</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>这场盛典，你在哪里？</h2>
+  <p>合伙人名额有限 · 巡演说明会仅限受邀嘉宾<br/>想了解投资机会、MCN合作、或成为Miss Crypto本地合作方<br/>现在联系我们</p>
+  <div class="cta-btn">立即申请参与 →</div><br/>
+  <div class="cta-url">🌐 roadshow.xavvi.com</div>
+</div>
+
+<!-- DISCLAIMER -->
+<div style="padding:20px 60px;text-align:center;">
+  <p style="font-size:10px;color:rgba(255,255,255,0.2);line-height:1.8;">⚠️ 免责声明：BFC与创作者代币（Creator Token）均为平台功能性代币（Utility Token），不构成任何形式的投资产品、证券或金融工具。持有代币不保证任何财务回报。本内容仅供参考，不构成投资建议。</p>
+</div>
+
+
+<!-- QR CODE -->
+<div style="background:#080810;padding:48px 60px 40px;text-align:center;border-top:1px solid rgba(245,200,66,0.12);">
+  <div style="font-size:12px;font-weight:700;letter-spacing:3px;color:#f5c842;text-transform:uppercase;margin-bottom:20px;">立即扫码 · 报名参与</div>
+  <div style="display:inline-block;background:#fff;border-radius:16px;padding:14px;box-shadow:0 0 40px rgba(245,200,66,0.15);">
+    <img src="qrcode.png" alt="roadshow.xavvi.com" style="width:180px;height:180px;display:block;"/>
+  </div>
+  <div style="margin-top:16px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.7);">roadshow.xavvi.com</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:4px;">加密小姐报名 · 巡演合伙人申请</div>
+</div>
+
+<footer>
+  <img src="logo.png" alt="Xavvi"/>
+  <p>© 2026 Xavvi Group · Miss Crypto International · 机密文件</p>
+</footer>
+
+</body>
+</html>

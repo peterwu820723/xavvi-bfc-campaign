@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=800"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:800px;background:#07070f;font-family:'PingFang SC','Helvetica Neue',Arial,sans-serif;color:#fff;}
+:root{--gold:#f5c842;--pink:#f72585;--blue:#4f8ef7;--green:#2dd4bf;--muted:#7777aa;}
+
+.hero{background:linear-gradient(160deg,#0d0d20,#130820,#0a1020);padding:56px 60px 48px;text-align:center;border-bottom:1px solid rgba(245,200,66,0.12);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:280px;background:radial-gradient(ellipse,rgba(245,200,66,0.1),transparent 70%);}
+.badge{display:inline-block;border:1px solid rgba(245,200,66,0.4);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:3px;padding:6px 20px;border-radius:20px;margin-bottom:24px;text-transform:uppercase;}
+.hero img{height:44px;margin-bottom:24px;display:block;margin-left:auto;margin-right:auto;}
+.hero h1{font-size:38px;font-weight:900;line-height:1.2;background:linear-gradient(135deg,#fff 30%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px;}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:32px;line-height:1.6;}
+.hero-stats{display:flex;justify-content:center;gap:40px;}
+.stat{text-align:center;}
+.stat-num{font-size:28px;font-weight:900;color:var(--gold);display:block;}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px;display:block;}
+
+.section{padding:44px 60px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.slabel{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
+.stitle{font-size:24px;font-weight:900;margin-bottom:6px;}
+.ssub{font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6;}
+
+/* Income cards */
+.income-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.income-card{border-radius:14px;padding:22px 20px;}
+.ic1{background:rgba(245,200,66,0.06);border:1px solid rgba(245,200,66,0.2);}
+.ic2{background:rgba(247,37,133,0.06);border:1px solid rgba(247,37,133,0.2);}
+.ic3{background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.2);}
+.ic4{background:rgba(45,212,191,0.06);border:1px solid rgba(45,212,191,0.2);}
+.ic-num{font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:6px;}
+.n1{color:var(--gold);}.n2{color:var(--pink);}.n3{color:var(--blue);}.n4{color:var(--green);}
+.ic-icon{font-size:22px;margin-bottom:8px;}
+.ic-title{font-size:15px;font-weight:900;margin-bottom:8px;}
+.ic-desc{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:12px;}
+.ic-tag{display:inline-block;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:800;}
+.t1{background:rgba(245,200,66,0.1);color:var(--gold);}
+.t2{background:rgba(247,37,133,0.1);color:var(--pink);}
+.t3{background:rgba(79,142,247,0.1);color:var(--blue);}
+.t4{background:rgba(45,212,191,0.1);color:var(--green);}
+
+/* Token tiers */
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px;}
+.tier{border-radius:12px;padding:16px 12px;text-align:center;}
+.tier-bronze{background:rgba(184,115,51,0.08);border:1px solid rgba(184,115,51,0.25);}
+.tier-silver{background:rgba(192,192,192,0.06);border:1px solid rgba(192,192,192,0.18);}
+.tier-gold{background:rgba(245,200,66,0.07);border:1px solid rgba(245,200,66,0.25);}
+.tier-legend{background:rgba(247,37,133,0.06);border:1px solid rgba(247,37,133,0.2);}
+.tier-icon{font-size:20px;margin-bottom:6px;}
+.tier-name{font-size:11px;font-weight:700;margin-bottom:8px;}
+.tn-b{color:#CD7F32;}.tn-s{color:#C0C0C0;}.tn-g{color:var(--gold);}.tn-l{color:var(--pink);}
+.tier-info{font-size:11px;color:rgba(255,255,255,0.55);line-height:1.9;}
+
+/* Countries */
+.countries{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.country{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:12px;text-align:center;}
+.c-flag{font-size:20px;margin-bottom:4px;}
+.c-name{font-size:11px;color:rgba(255,255,255,0.75);font-weight:600;}
+.last-country{background:rgba(245,200,66,0.05);border-color:rgba(245,200,66,0.2);}
+
+/* Rules */
+.rules{display:flex;flex-direction:column;gap:12px;}
+.rule{display:flex;gap:14px;align-items:flex-start;}
+.rule-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;margin-top:1px;}
+.rd1{background:rgba(245,200,66,0.15);color:var(--gold);}
+.rd2{background:rgba(247,37,133,0.12);color:var(--pink);}
+.rd3{background:rgba(79,142,247,0.12);color:var(--blue);}
+.rd4{background:rgba(45,212,191,0.12);color:var(--green);}
+.rule-text{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;padding-top:4px;}
+.rule-text strong{color:#fff;}
+
+/* CTA */
+.cta{padding:48px 60px;text-align:center;background:linear-gradient(135deg,#0d0820,#0a1520);}
+.cta h2{font-size:26px;font-weight:900;background:linear-gradient(135deg,#fff,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;}
+.cta p{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:20px;line-height:1.7;}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#f5c842,#e8a020);color:#000;font-size:14px;font-weight:900;padding:13px 36px;border-radius:30px;margin-bottom:16px;}
+.cta-url{font-size:12px;color:var(--gold);}
+
+/* QR */
+.qr-section{padding:36px 60px 28px;text-align:center;border-top:1px solid rgba(245,200,66,0.1);}
+.qr-label{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;}
+.qr-wrap{display:inline-block;background:#fff;border-radius:14px;padding:12px;}
+.qr-wrap img{width:160px;height:160px;display:block;}
+.qr-url{font-size:13px;font-weight:700;color:rgba(255,255,255,0.6);margin-top:12px;}
+
+footer{padding:20px 60px;text-align:center;border-top:1px solid rgba(255,255,255,0.04);}
+footer img{height:28px;opacity:0.5;margin-bottom:6px;}
+footer p{font-size:10px;color:rgba(255,255,255,0.18);}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="logo.png" alt="Xavvi"/>
+  <div class="badge">🌏 Miss Crypto International 2026 · 分赛区合伙人招募</div>
+  <h1>11国独家赛区授权<br/>四大长期收益</h1>
+  <p class="hero-sub">资源置换入场 · 无需现金投入 · 与选手利益深度绑定<br/>每个国家仅一个名额，先到先得</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">11</span><span class="stat-label">独家赛区</span></div>
+    <div class="stat"><span class="stat-num">50%</span><span class="stat-label">Co-GP 收益</span></div>
+    <div class="stat"><span class="stat-num">100万</span><span class="stat-label">每位选手Token</span></div>
+    <div class="stat"><span class="stat-num">20%</span><span class="stat-label">赞助商佣金</span></div>
+  </div>
+</div>
+
+<!-- INCOME STREAMS -->
+<div class="section">
+  <div class="slabel">四大收益来源</div>
+  <div class="stitle">合伙人怎么赚钱？</div>
+  <p class="ssub">每个收益流独立结算，叠加获取，长期持续</p>
+  <div class="income-grid">
+    <div class="income-card ic1">
+      <div class="ic-num n1">收益 ①</div>
+      <div class="ic-icon">💰</div>
+      <div class="ic-title">StarFi 基金 Co-GP</div>
+      <div class="ic-desc">招募本赛区 LP 投资人。每月一期新基金，每月持续分配。无募集金额硬指标，按实际招募比例分配。</div>
+      <span class="ic-tag t1">GP 收益 × 50%</span>
+    </div>
+    <div class="income-card ic2">
+      <div class="ic-num n2">收益 ②</div>
+      <div class="ic-icon">🪙</div>
+      <div class="ic-title">Creator Token 锁仓收益</div>
+      <div class="ic-desc">每招募1名选手 → 获得100万枚其 Creator Token。全锁仓，委托 StarFi 做市团队托管变现，防止砸盘。</div>
+      <span class="ic-tag t2">每位选手 100万枚</span>
+    </div>
+    <div class="income-card ic3">
+      <div class="ic-num n3">收益 ③</div>
+      <div class="ic-icon">🎟️</div>
+      <div class="ic-title">Vegas 门票销售提成</div>
+      <div class="ic-desc">本赛区选手进入 Las Vegas 决赛后，其粉丝购买 Vegas 门票产生的销售额，合伙人享有 10% 佣金。</div>
+      <span class="ic-tag t3">门票销售额 × 10%</span>
+    </div>
+    <div class="income-card ic4">
+      <div class="ic-num n4">收益 ④</div>
+      <div class="ic-icon">🤝</div>
+      <div class="ic-title">活动赞助商佣金</div>
+      <div class="ic-desc">为本赛区巡演活动引入商业赞助商，获得赞助金额的 20% 作为招募佣金。品牌获得活动现场曝光。</div>
+      <span class="ic-tag t4">赞助金额 × 20%</span>
+    </div>
+  </div>
+</div>
+
+<!-- TOKEN TIERS -->
+<div class="section">
+  <div class="slabel">Creator Token 解锁机制</div>
+  <div class="stitle">🪙 四档解锁，越努力越快变现</div>
+  <p class="ssub">纯时间线性解锁 · 持有满12个月100%可套现 · 委托 StarFi 做市团队变现 · 手续费 10%</p>
+  <div class="tiers">
+    <div class="tier tier-gold">
+      <div class="tier-icon">📅</div>
+      <div class="tier-name tn-g">第 3 个月</div>
+      <div class="tier-info" style="font-size:18px;font-weight:900;color:#fff;">25%</div>
+      <div class="tier-info">解锁 25万枚</div>
+    </div>
+    <div class="tier tier-gold">
+      <div class="tier-icon">📅</div>
+      <div class="tier-name tn-g">第 6 个月</div>
+      <div class="tier-info" style="font-size:18px;font-weight:900;color:#fff;">50%</div>
+      <div class="tier-info">累计 50万枚</div>
+    </div>
+    <div class="tier tier-gold">
+      <div class="tier-icon">📅</div>
+      <div class="tier-name tn-g">第 9 个月</div>
+      <div class="tier-info" style="font-size:18px;font-weight:900;color:#fff;">75%</div>
+      <div class="tier-info">累计 75万枚</div>
+    </div>
+    <div class="tier tier-legend">
+      <div class="tier-icon">👑</div>
+      <div class="tier-name tn-l">第 12 个月</div>
+      <div class="tier-info" style="font-size:18px;font-weight:900;color:#fff;">100%</div>
+      <div class="tier-info">全部 100万枚</div>
+    </div>
+  </div>
+</div>
+
+<!-- COUNTRIES -->
+<div class="section">
+  <div class="slabel">11个独家赛区</div>
+  <div class="stitle">🌏 每个国家，只有一个合伙人</div>
+  <p class="ssub">巡演路线：2026年5月10日出发，34天11城，资源置换即可锁定赛区</p>
+  <div class="countries">
+    <div class="country"><div class="c-flag">🇭🇰</div><div class="c-name">香港</div></div>
+    <div class="country"><div class="c-flag">🇹🇼</div><div class="c-name">台湾</div></div>
+    <div class="country"><div class="c-flag">🇯🇵</div><div class="c-name">日本</div></div>
+    <div class="country"><div class="c-flag">🇰🇷</div><div class="c-name">韩国</div></div>
+    <div class="country"><div class="c-flag">🇲🇾</div><div class="c-name">马来西亚</div></div>
+    <div class="country"><div class="c-flag">🇸🇬</div><div class="c-name">新加坡</div></div>
+    <div class="country"><div class="c-flag">🇹🇭</div><div class="c-name">泰国</div></div>
+    <div class="country"><div class="c-flag">🇰🇭</div><div class="c-name">柬埔寨</div></div>
+    <div class="country"><div class="c-flag">🇻🇳</div><div class="c-name">越南</div></div>
+    <div class="country"><div class="c-flag">🇱🇰</div><div class="c-name">斯里兰卡</div></div>
+    <div class="country"><div class="c-flag">🇮🇩</div><div class="c-name">印尼</div></div>
+    <div class="country last-country"><div class="c-flag">⚡</div><div class="c-name" style="color:#f5c842;">名额有限</div></div>
+  </div>
+</div>
+
+<!-- KEY RULES -->
+<div class="section">
+  <div class="slabel">核心保护机制</div>
+  <div class="stitle">为什么这个模式可持续？</div>
+  <div class="rules">
+    <div class="rule">
+      <div class="rule-dot rd1">1</div>
+      <div class="rule-text"><strong>全锁仓机制</strong>：合伙人的 Creator Token 全部锁仓，不允许直接市场抛售，防止砸盘损害选手代币价值和合伙人长期收益</div>
+    </div>
+    <div class="rule">
+      <div class="rule-dot rd2">2</div>
+      <div class="rule-text"><strong>做市团队托管变现</strong>：StarFi 基金专业做市团队控制变现节奏，30天内逐步卖出，保护市场价格稳定</div>
+    </div>
+    <div class="rule">
+      <div class="rule-dot rd3">3</div>
+      <div class="rule-text"><strong>时间线性解锁</strong>：持满3/6/9/12个月各解锁25%，12个月后100%可套现，规则透明可预期</div>
+    </div>
+    <div class="rule">
+      <div class="rule-dot rd4">4</div>
+      <div class="rule-text"><strong>唯一独家授权</strong>：每个国家只有一个分赛区合伙人，先签约先锁定，无竞争风险</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>抢占你的国家赛区</h2>
+  <p>每个国家仅一个名额 · 资源置换，无需现金投入<br/>巡演5月10日出发，现在申请，赶上第一站</p>
+  <div class="cta-btn">立即申请分赛区合伙人 →</div><br/>
+  <div class="cta-url">🌐 roadshow.xavvi.com</div>
+</div>
+
+<!-- QR -->
+<div class="qr-section">
+  <div class="qr-label">扫码申请 · 了解详情</div>
+  <div class="qr-wrap"><img src="qrcode.png" alt="roadshow.xavvi.com"/></div>
+  <div class="qr-url">roadshow.xavvi.com</div>
+</div>
+
+<!-- DISCLAIMER -->
+<div style="padding:16px 60px;text-align:center;">
+  <p style="font-size:10px;color:rgba(255,255,255,0.15);line-height:1.8;">⚠️ 免责声明：BFC与Creator Token均为平台功能性代币（Utility Token），不构成投资产品、证券或金融工具。本内容仅供参考，不构成投资建议。</p>
+</div>
+
+<footer>
+  <img src="logo.png" alt="Xavvi"/>
+  <p>© 2026 Xavvi Group · Miss Crypto International · 机密文件</p>
+</footer>
+
+</body>
+</html>
