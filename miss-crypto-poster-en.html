@@ -6,12 +6,12 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{width:1080px;height:1920px;background:#000;font-family:'PingFang SC','Noto Sans SC','Helvetica Neue',Arial,sans-serif;color:#fff;overflow:hidden;position:relative;}
 
-/* ── 背景 ── */
+/* Background */
 .bg{position:absolute;inset:0;background:linear-gradient(180deg,#000 0%,#0a0500 40%,#1a0800 70%,#000 100%);}
 .glow-top{position:absolute;top:0;left:50%;transform:translateX(-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(245,180,30,0.09),transparent 65%);}
 .glow-bottom{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:1000px;height:500px;background:radial-gradient(ellipse,rgba(200,120,0,0.18),transparent 60%);}
 
-/* ── 角饰 ── */
+/* Corner ornaments */
 .corner{position:absolute;width:56px;height:56px;}
 .corner-tl{top:36px;left:36px;border-top:1.5px solid rgba(245,180,30,0.45);border-left:1.5px solid rgba(245,180,30,0.45);}
 .corner-tr{top:36px;right:36px;border-top:1.5px solid rgba(245,180,30,0.45);border-right:1.5px solid rgba(245,180,30,0.45);}
@@ -20,7 +20,7 @@ body{width:1080px;height:1920px;background:#000;font-family:'PingFang SC','Noto 
 .side-line-l{position:absolute;left:36px;top:120px;height:220px;width:1px;background:linear-gradient(to bottom,transparent,rgba(245,180,30,0.3),transparent);}
 .side-line-r{position:absolute;right:36px;top:120px;height:220px;width:1px;background:linear-gradient(to bottom,transparent,rgba(245,180,30,0.3),transparent);}
 
-/* ── 顶部文字区（纯文字，无图片遮挡） ── */
+/* Top text zone */
 .top-zone{position:absolute;top:0;left:0;right:0;height:560px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:58px;z-index:30;}
 
 .logo-row{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
@@ -43,21 +43,21 @@ body{width:1080px;height:1920px;background:#000;font-family:'PingFang SC','Noto 
 .s-lbl{font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,0.38);margin-top:4px;}
 .s-sep{width:1px;height:36px;background:rgba(245,180,30,0.18);}
 
-/* ── 图片区（中间大图，全幅） ── */
+/* Image zone */
 .queen-zone{position:absolute;top:500px;left:0;right:0;height:1000px;z-index:10;overflow:hidden;}
 .queen-zone img{width:100%;height:100%;object-fit:cover;object-position:center top;}
-/* 顶部渐变：与顶部文字区完美融合 */
+/* Fade top */
 .q-fade-top{position:absolute;top:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.6) 60%,transparent 100%);}
-/* 底部渐变：与底部文字区完美融合 */
+/* Fade bottom */
 .q-fade-bottom{position:absolute;bottom:0;left:0;right:0;height:260px;background:linear-gradient(to top,#000 30%,rgba(0,0,0,0.75) 65%,transparent 100%);}
-/* 两侧渐变 */
+/* Fade sides */
 .q-fade-left{position:absolute;top:0;bottom:0;left:0;width:80px;background:linear-gradient(to right,#000,transparent);}
 .q-fade-right{position:absolute;top:0;bottom:0;right:0;width:80px;background:linear-gradient(to left,#000,transparent);}
 
-/* ── 底部文字区（纯文字，无图片遮挡） ── */
+/* Bottom text zone */
 .bottom-zone{position:absolute;bottom:0;left:0;right:0;height:440px;z-index:30;padding:0 72px 52px;}
 
-/* 奖项 */
+/* Prizes */
 .prize-row{display:flex;gap:14px;margin-bottom:24px;}
 .prize-card{flex:1;border-radius:14px;padding:16px 14px;text-align:center;}
 .pc-gold{background:rgba(255,210,0,0.07);border:1px solid rgba(255,210,0,0.28);}
@@ -69,7 +69,7 @@ body{width:1080px;height:1920px;background:#000;font-family:'PingFang SC','Noto 
 .p-cash{font-size:24px;font-weight:900;color:#fff;line-height:1;}
 .p-token{font-size:10px;color:rgba(255,255,255,0.35);margin-top:4px;}
 
-/* 时间线 */
+/* Timeline */
 .timeline-bar{background:rgba(245,180,30,0.05);border:1px solid rgba(245,180,30,0.12);border-radius:12px;padding:14px 20px;margin-bottom:22px;}
 .tl-label{font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(245,180,30,0.5);margin-bottom:10px;text-transform:uppercase;}
 .tl-row{display:flex;justify-content:space-between;align-items:center;}
@@ -78,7 +78,7 @@ body{width:1080px;height:1920px;background:#000;font-family:'PingFang SC','Noto 
 .tl-event{font-size:10px;color:rgba(255,255,255,0.38);margin-top:3px;line-height:1.4;}
 .tl-arrow{font-size:12px;color:rgba(245,180,30,0.22);}
 
-/* CTA行 */
+/* CTA */
 .cta-row{display:flex;align-items:center;justify-content:space-between;gap:20px;}
 .cta-text{}
 .cta-main{font-size:20px;font-weight:900;margin-bottom:5px;}
@@ -87,7 +87,7 @@ body{width:1080px;height:1920px;background:#000;font-family:'PingFang SC','Noto 
 .qr-box{background:#fff;border-radius:12px;padding:8px;flex-shrink:0;}
 .qr-box img{width:108px;height:108px;display:block;}
 
-/* 免责声明 */
+/* Disclaimer */
 .disclaimer{position:absolute;bottom:14px;left:72px;right:72px;text-align:center;font-size:9px;color:rgba(255,255,255,0.1);line-height:1.6;z-index:30;}
 </style>
 </head>
@@ -103,7 +103,7 @@ body{width:1080px;height:1920px;background:#000;font-family:'PingFang SC','Noto 
 <div class="side-line-l"></div>
 <div class="side-line-r"></div>
 
-<!-- ★ 顶部文字区 ★ -->
+<!-- Top zone -->
 <div class="top-zone">
   <div class="logo-row">
     <img src="logo.png" alt="Xavvi"/>
@@ -112,21 +112,21 @@ body{width:1080px;height:1920px;background:#000;font-family:'PingFang SC','Noto 
   </div>
   <div class="badge"><span>✦ World's First Web4 Creator Beauty Pageant ✦</span></div>
   <div class="main-title" style="font-size:72px;letter-spacing:-1px;">Miss Crypto<br/>International</div>
-  <div class="main-en">国际加密小姐大赛</div>
+  <div class="main-en">Global Web4 Creator Contest</div>
   <div class="divider-line"></div>
-  <div class="sub-tagline">2026 · Las Vegas总决赛</div>
+  <div class="sub-tagline">2026 · Las Vegas Grand Finals</div>
   <div class="stats-strip">
     <div class="s-item"><div class="s-num">500+</div><div class="s-lbl">Global Contestants</div></div>
     <div class="s-sep"></div>
     <div class="s-item"><div class="s-num">11</div><div class="s-lbl">Asian Regions</div></div>
     <div class="s-sep"></div>
-    <div class="s-item"><div class="s-num">$360万+</div><div class="s-lbl">Total Prize Pool</div></div>
+    <div class="s-item"><div class="s-num">$3.6M+</div><div class="s-lbl">Total Prize Pool</div></div>
     <div class="s-sep"></div>
     <div class="s-item"><div class="s-num">Las Vegas</div><div class="s-lbl">Finals Venue</div></div>
   </div>
 </div>
 
-<!-- ★ 图片区（脸部完全不被遮挡） ★ -->
+<!-- Image zone -->
 <div class="queen-zone">
   <img src="miss-crypto-queen2.png" alt="Miss Crypto Queens"/>
   <div class="q-fade-top"></div>
@@ -135,41 +135,41 @@ body{width:1080px;height:1920px;background:#000;font-family:'PingFang SC','Noto 
   <div class="q-fade-right"></div>
 </div>
 
-<!-- ★ 底部文字区 ★ -->
+<!-- Bottom zone -->
 <div class="bottom-zone">
-  <!-- 奖项 -->
+  <!-- Prizes -->
   <div class="prize-row">
     <div class="prize-card pc-gold">
       <div class="p-icon">👑</div>
       <div class="p-name n-gold">CHAMPION</div>
-      <div class="p-cash">$300万</div>
+      <div class="p-cash">$3,000,000</div>
       <div class="p-token">+ 1M BFC Tokens</div>
     </div>
     <div class="prize-card pc-silver">
       <div class="p-icon">🥈</div>
       <div class="p-name n-silver">1ST RUNNER-UP</div>
-      <div class="p-cash">$50万</div>
+      <div class="p-cash">$500,000</div>
       <div class="p-token">+ 300K BFC Tokens</div>
     </div>
     <div class="prize-card pc-bronze">
       <div class="p-icon">🥉</div>
       <div class="p-name n-bronze">2ND RUNNER-UP</div>
-      <div class="p-cash">$10万</div>
+      <div class="p-cash">$100,000</div>
       <div class="p-token">+ 50K BFC Tokens</div>
     </div>
   </div>
 
-  <!-- 时间线 -->
+  <!-- Timeline -->
   <div class="timeline-bar">
     <div class="tl-label">✦ Contest Timeline</div>
     <div class="tl-row">
-      <div class="tl-step"><div class="tl-month">7月</div><div class="tl-event">Global<br/>Auditions</div></div>
+      <div class="tl-step"><div class="tl-month">July</div><div class="tl-event">Global<br/>Auditions</div></div>
       <div class="tl-arrow">›</div>
-      <div class="tl-step"><div class="tl-month">7月底</div><div class="tl-event">500 Finalists<br/>Token Launch</div></div>
+      <div class="tl-step"><div class="tl-month">Late July</div><div class="tl-event">500 Finalists<br/>Token Launch</div></div>
       <div class="tl-arrow">›</div>
-      <div class="tl-step"><div class="tl-month">8月</div><div class="tl-event">Influence<br/>Weekly Rounds</div></div>
+      <div class="tl-step"><div class="tl-month">August</div><div class="tl-event">Influence<br/>Weekly Rounds</div></div>
       <div class="tl-arrow">›</div>
-      <div class="tl-step"><div class="tl-month">9月</div><div class="tl-event">Las Vegas<br/>总决赛</div></div>
+      <div class="tl-step"><div class="tl-month">September</div><div class="tl-event">Las Vegas<br/>Grand Finals</div></div>
     </div>
   </div>
 
@@ -181,7 +181,7 @@ body{width:1080px;height:1920px;background:#000;font-family:'PingFang SC','Noto 
       <div class="cta-url">🌐 roadshow.xavvi.com</div>
     </div>
     <div class="qr-box">
-      <img src="qrcode.png" alt="扫码报名"/>
+      <img src="qrcode.png" alt="Scan to Register"/>
     </div>
   </div>
 </div>
