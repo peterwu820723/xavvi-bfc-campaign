@@ -6,212 +6,187 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{width:1080px;height:1920px;background:#000;font-family:'PingFang SC','Noto Sans SC','Helvetica Neue',Arial,sans-serif;color:#fff;overflow:hidden;position:relative;}
 
-/* Background layers */
-.bg-base{position:absolute;inset:0;background:radial-gradient(ellipse 100% 60% at 50% 100%,#1a0a00 0%,#000 55%);}
-.bg-top-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(245,180,30,0.07),transparent 70%);}
-.bg-mid-glow{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(245,180,30,0.04),transparent 65%);}
-.bg-bottom-glow{position:absolute;bottom:-80px;left:50%;transform:translateX(-50%);width:1000px;height:400px;background:radial-gradient(ellipse,rgba(200,120,0,0.18),transparent 60%);}
+/* ── 背景 ── */
+.bg{position:absolute;inset:0;background:linear-gradient(180deg,#000 0%,#0a0500 40%,#1a0800 70%,#000 100%);}
+.glow-top{position:absolute;top:0;left:50%;transform:translateX(-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(245,180,30,0.09),transparent 65%);}
+.glow-bottom{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:1000px;height:500px;background:radial-gradient(ellipse,rgba(200,120,0,0.18),transparent 60%);}
 
-/* Decorative lines */
-.deco-line-left{position:absolute;left:48px;top:160px;bottom:200px;width:1px;background:linear-gradient(to bottom,transparent,rgba(245,180,30,0.25) 30%,rgba(245,180,30,0.25) 70%,transparent);}
-.deco-line-right{position:absolute;right:48px;top:160px;bottom:200px;width:1px;background:linear-gradient(to bottom,transparent,rgba(245,180,30,0.25) 30%,rgba(245,180,30,0.25) 70%,transparent);}
+/* ── 角饰 ── */
+.corner{position:absolute;width:56px;height:56px;}
+.corner-tl{top:36px;left:36px;border-top:1.5px solid rgba(245,180,30,0.45);border-left:1.5px solid rgba(245,180,30,0.45);}
+.corner-tr{top:36px;right:36px;border-top:1.5px solid rgba(245,180,30,0.45);border-right:1.5px solid rgba(245,180,30,0.45);}
+.corner-bl{bottom:36px;left:36px;border-bottom:1.5px solid rgba(245,180,30,0.45);border-left:1.5px solid rgba(245,180,30,0.45);}
+.corner-br{bottom:36px;right:36px;border-bottom:1.5px solid rgba(245,180,30,0.45);border-right:1.5px solid rgba(245,180,30,0.45);}
+.side-line-l{position:absolute;left:36px;top:120px;height:220px;width:1px;background:linear-gradient(to bottom,transparent,rgba(245,180,30,0.3),transparent);}
+.side-line-r{position:absolute;right:36px;top:120px;height:220px;width:1px;background:linear-gradient(to bottom,transparent,rgba(245,180,30,0.3),transparent);}
 
-/* Corner ornaments */
-.corner{position:absolute;width:50px;height:50px;}
-.corner-tl{top:40px;left:40px;border-top:1.5px solid rgba(245,180,30,0.5);border-left:1.5px solid rgba(245,180,30,0.5);}
-.corner-tr{top:40px;right:40px;border-top:1.5px solid rgba(245,180,30,0.5);border-right:1.5px solid rgba(245,180,30,0.5);}
-.corner-bl{bottom:40px;left:40px;border-bottom:1.5px solid rgba(245,180,30,0.5);border-left:1.5px solid rgba(245,180,30,0.5);}
-.corner-br{bottom:40px;right:40px;border-bottom:1.5px solid rgba(245,180,30,0.5);border-right:1.5px solid rgba(245,180,30,0.5);}
+/* ── 顶部文字区（纯文字，无图片遮挡） ── */
+.top-zone{position:absolute;top:0;left:0;right:0;height:620px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:58px;z-index:30;}
 
-/* Top section */
-.top-section{position:absolute;top:0;left:0;right:0;padding:64px 80px 0;text-align:center;z-index:10;}
-.logo-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:32px;}
-.logo-row img{height:36px;filter:brightness(1.1);}
-.logo-divider{width:1px;height:30px;background:rgba(245,180,30,0.3);}
-.logo-text{font-size:14px;font-weight:700;letter-spacing:3px;color:rgba(245,180,30,0.7);text-transform:uppercase;}
+.logo-row{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+.logo-row img{height:32px;}
+.logo-sep{width:1px;height:26px;background:rgba(245,180,30,0.3);}
+.logo-txt{font-size:12px;font-weight:700;letter-spacing:4px;color:rgba(245,180,30,0.65);text-transform:uppercase;}
 
-.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(245,180,30,0.35);background:rgba(245,180,30,0.06);padding:7px 22px;border-radius:30px;margin-bottom:28px;}
-.badge span{font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(245,180,30,0.8);text-transform:uppercase;}
+.badge{border:1px solid rgba(245,180,30,0.3);background:rgba(245,180,30,0.06);border-radius:30px;padding:7px 24px;margin-bottom:22px;}
+.badge span{font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(245,180,30,0.75);text-transform:uppercase;}
 
-.main-title{font-size:78px;font-weight:900;line-height:1.0;letter-spacing:-2px;margin-bottom:8px;background:linear-gradient(180deg,#fff 0%,#f5c832 50%,#c8860a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.main-subtitle{font-size:28px;font-weight:300;letter-spacing:8px;color:rgba(255,255,255,0.5);margin-bottom:10px;text-transform:uppercase;}
-.tagline{font-size:16px;font-weight:700;letter-spacing:4px;color:rgba(245,180,30,0.6);text-transform:uppercase;margin-bottom:0;}
+.main-title{font-size:100px;font-weight:900;line-height:0.95;letter-spacing:-3px;text-align:center;background:linear-gradient(180deg,#ffffff 0%,#f5c832 45%,#c47a00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;}
+.main-en{font-size:22px;font-weight:300;letter-spacing:10px;color:rgba(255,255,255,0.38);text-align:center;text-transform:uppercase;margin-bottom:18px;}
+.divider-line{width:180px;height:1px;background:linear-gradient(to right,transparent,rgba(245,180,30,0.5),transparent);margin:0 auto 18px;}
+.sub-tagline{font-size:18px;font-weight:700;letter-spacing:5px;color:rgba(245,180,30,0.7);text-align:center;text-transform:uppercase;margin-bottom:22px;}
 
-/* Queen image */
-.queen-wrap{position:absolute;left:50%;transform:translateX(-50%);top:320px;width:900px;z-index:5;}
-.queen-wrap img{width:100%;display:block;}
-.queen-fade-top{position:absolute;top:0;left:0;right:0;height:120px;background:linear-gradient(to bottom,#000,transparent);}
-.queen-fade-bottom{position:absolute;bottom:0;left:0;right:0;height:280px;background:linear-gradient(to top,#000 40%,rgba(0,0,0,0.7) 70%,transparent);}
+/* stats strip */
+.stats-strip{display:flex;align-items:center;gap:0;background:rgba(0,0,0,0.6);border:1px solid rgba(245,180,30,0.15);border-radius:12px;padding:12px 0;width:820px;}
+.s-item{flex:1;text-align:center;}
+.s-num{font-size:26px;font-weight:900;background:linear-gradient(180deg,#fff,#f5c832);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.s-lbl{font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,0.38);margin-top:4px;}
+.s-sep{width:1px;height:36px;background:rgba(245,180,30,0.18);}
 
-/* Stats bar - middle overlay */
-.stats-bar{position:absolute;left:80px;right:80px;top:820px;z-index:20;display:flex;justify-content:space-between;align-items:center;}
-.stat-item{text-align:center;}
-.stat-num{font-size:36px;font-weight:900;background:linear-gradient(180deg,#fff,#f5c832);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
-.stat-label{font-size:11px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.35);margin-top:5px;text-transform:uppercase;}
-.stat-divider{width:1px;height:40px;background:rgba(245,180,30,0.2);}
+/* ── 图片区（中间大图，全幅） ── */
+.queen-zone{position:absolute;top:580px;left:0;right:0;height:900px;z-index:10;overflow:hidden;}
+.queen-zone img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+/* 顶部渐变：与顶部文字区完美融合 */
+.q-fade-top{position:absolute;top:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,#000 0%,rgba(0,0,0,0.6) 60%,transparent 100%);}
+/* 底部渐变：与底部文字区完美融合 */
+.q-fade-bottom{position:absolute;bottom:0;left:0;right:0;height:260px;background:linear-gradient(to top,#000 30%,rgba(0,0,0,0.75) 65%,transparent 100%);}
+/* 两侧渐变 */
+.q-fade-left{position:absolute;top:0;bottom:0;left:0;width:80px;background:linear-gradient(to right,#000,transparent);}
+.q-fade-right{position:absolute;top:0;bottom:0;right:0;width:80px;background:linear-gradient(to left,#000,transparent);}
 
-/* Bottom section */
-.bottom-section{position:absolute;bottom:0;left:0;right:0;padding:0 80px 70px;z-index:20;}
+/* ── 底部文字区（纯文字，无图片遮挡） ── */
+.bottom-zone{position:absolute;bottom:0;left:0;right:0;height:440px;z-index:30;padding:0 72px 52px;}
 
-/* Prize showcase */
-.prize-row{display:flex;justify-content:center;gap:16px;margin-bottom:40px;}
-.prize-card{flex:1;max-width:240px;border-radius:16px;padding:20px 16px;text-align:center;position:relative;overflow:hidden;}
-.prize-card::before{content:'';position:absolute;inset:0;border-radius:16px;}
-.pc-gold{background:rgba(255,210,0,0.07);border:1px solid rgba(255,210,0,0.3);}
+/* 奖项 */
+.prize-row{display:flex;gap:14px;margin-bottom:24px;}
+.prize-card{flex:1;border-radius:14px;padding:16px 14px;text-align:center;}
+.pc-gold{background:rgba(255,210,0,0.07);border:1px solid rgba(255,210,0,0.28);}
 .pc-silver{background:rgba(180,180,180,0.05);border:1px solid rgba(180,180,180,0.2);}
 .pc-bronze{background:rgba(180,100,30,0.06);border:1px solid rgba(180,100,30,0.2);}
-.p-emoji{font-size:28px;margin-bottom:8px;}
-.p-rank{font-size:12px;font-weight:900;letter-spacing:2px;margin-bottom:10px;}
-.rank-gold{color:#FFD700;}.rank-silver{color:#C0C0C0;}.rank-bronze{color:#CD7F32;}
-.p-amount{font-size:26px;font-weight:900;color:#fff;line-height:1;}
-.p-token{font-size:11px;color:rgba(255,255,255,0.35);margin-top:5px;}
+.p-icon{font-size:22px;margin-bottom:6px;}
+.p-name{font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:8px;}
+.n-gold{color:#FFD700;}.n-silver{color:#C0C0C0;}.n-bronze{color:#CD7F32;}
+.p-cash{font-size:24px;font-weight:900;color:#fff;line-height:1;}
+.p-token{font-size:10px;color:rgba(255,255,255,0.35);margin-top:4px;}
 
-/* Timeline strip */
-.timeline-strip{background:rgba(245,180,30,0.05);border:1px solid rgba(245,180,30,0.12);border-radius:14px;padding:18px 24px;margin-bottom:32px;}
-.ts-label{font-size:10px;font-weight:700;letter-spacing:3px;color:rgba(245,180,30,0.5);text-transform:uppercase;margin-bottom:12px;}
-.ts-items{display:flex;justify-content:space-between;align-items:center;}
-.ts-item{text-align:center;flex:1;}
-.ts-date{font-size:12px;font-weight:900;color:rgba(245,180,30,0.8);}
-.ts-event{font-size:10px;color:rgba(255,255,255,0.4);margin-top:3px;line-height:1.4;}
-.ts-arrow{color:rgba(245,180,30,0.25);font-size:14px;}
+/* 时间线 */
+.timeline-bar{background:rgba(245,180,30,0.05);border:1px solid rgba(245,180,30,0.12);border-radius:12px;padding:14px 20px;margin-bottom:22px;}
+.tl-label{font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(245,180,30,0.5);margin-bottom:10px;text-transform:uppercase;}
+.tl-row{display:flex;justify-content:space-between;align-items:center;}
+.tl-step{text-align:center;flex:1;}
+.tl-month{font-size:14px;font-weight:900;color:rgba(245,180,30,0.9);}
+.tl-event{font-size:10px;color:rgba(255,255,255,0.38);margin-top:3px;line-height:1.4;}
+.tl-arrow{font-size:12px;color:rgba(245,180,30,0.22);}
 
-/* CTA */
-.cta-row{display:flex;align-items:center;justify-content:space-between;gap:24px;}
-.cta-left{}
-.cta-title{font-size:18px;font-weight:900;margin-bottom:4px;}
-.cta-sub{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
-.cta-url{font-size:13px;font-weight:700;color:rgba(245,180,30,0.7);margin-top:6px;}
-.qr-wrap{background:#fff;border-radius:12px;padding:8px;flex-shrink:0;}
-.qr-wrap img{width:110px;height:110px;display:block;}
+/* CTA行 */
+.cta-row{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.cta-text{}
+.cta-main{font-size:20px;font-weight:900;margin-bottom:5px;}
+.cta-sub{font-size:12px;color:rgba(255,255,255,0.38);line-height:1.7;margin-bottom:6px;}
+.cta-url{font-size:14px;font-weight:700;color:rgba(245,180,30,0.75);}
+.qr-box{background:#fff;border-radius:12px;padding:8px;flex-shrink:0;}
+.qr-box img{width:108px;height:108px;display:block;}
 
-/* Disclaimer */
-.disclaimer{position:absolute;bottom:20px;left:80px;right:80px;text-align:center;font-size:9px;color:rgba(255,255,255,0.12);line-height:1.6;z-index:20;}
+/* 免责声明 */
+.disclaimer{position:absolute;bottom:14px;left:72px;right:72px;text-align:center;font-size:9px;color:rgba(255,255,255,0.1);line-height:1.6;z-index:30;}
 </style>
 </head>
 <body>
 
-<!-- Background -->
-<div class="bg-base"></div>
-<div class="bg-top-glow"></div>
-<div class="bg-mid-glow"></div>
-<div class="bg-bottom-glow"></div>
-
-<!-- Deco -->
-<div class="deco-line-left"></div>
-<div class="deco-line-right"></div>
+<div class="bg"></div>
+<div class="glow-top"></div>
+<div class="glow-bottom"></div>
 <div class="corner corner-tl"></div>
 <div class="corner corner-tr"></div>
 <div class="corner corner-bl"></div>
 <div class="corner corner-br"></div>
+<div class="side-line-l"></div>
+<div class="side-line-r"></div>
 
-<!-- TOP -->
-<div class="top-section">
+<!-- ★ 顶部文字区 ★ -->
+<div class="top-zone">
   <div class="logo-row">
     <img src="logo.png" alt="Xavvi"/>
-    <div class="logo-divider"></div>
-    <div class="logo-text">Presents</div>
+    <div class="logo-sep"></div>
+    <div class="logo-txt">荣耀呈献</div>
   </div>
-  <div class="badge"><span>✦ Global Web4 Creator Contest ✦</span></div>
-  <div class="main-title">Miss Crypto</div>
-  <div class="main-subtitle">International</div>
-  <div class="tagline">2026 · Las Vegas Finals</div>
-</div>
-
-<!-- Stats bar -->
-<div class="stats-bar">
-  <div class="stat-item">
-    <div class="stat-num">500+</div>
-    <div class="stat-label">全球选手</div>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat-item">
-    <div class="stat-num">11</div>
-    <div class="stat-label">亚洲赛区</div>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat-item">
-    <div class="stat-num">$360万+</div>
-    <div class="stat-label">总奖金池</div>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat-item">
-    <div class="stat-num">Las Vegas</div>
-    <div class="stat-label">决赛地点</div>
+  <div class="badge"><span>✦ 全球首届 Web4 网红选美大赛 ✦</span></div>
+  <div class="main-title">加密小姐</div>
+  <div class="main-en">Miss Crypto International</div>
+  <div class="divider-line"></div>
+  <div class="sub-tagline">2026 · 拉斯维加斯总决赛</div>
+  <div class="stats-strip">
+    <div class="s-item"><div class="s-num">500+</div><div class="s-lbl">全球选手</div></div>
+    <div class="s-sep"></div>
+    <div class="s-item"><div class="s-num">11</div><div class="s-lbl">亚洲赛区</div></div>
+    <div class="s-sep"></div>
+    <div class="s-item"><div class="s-num">$360万+</div><div class="s-lbl">总奖金池</div></div>
+    <div class="s-sep"></div>
+    <div class="s-item"><div class="s-num">拉斯维加斯</div><div class="s-lbl">决赛地点</div></div>
   </div>
 </div>
 
-<!-- Queen image -->
-<div class="queen-wrap">
-  <img src="miss-crypto-queen.png" alt="Miss Crypto Queen"/>
-  <div class="queen-fade-top"></div>
-  <div class="queen-fade-bottom"></div>
+<!-- ★ 图片区（脸部完全不被遮挡） ★ -->
+<div class="queen-zone">
+  <img src="miss-crypto-queen2.png" alt="Miss Crypto Queens"/>
+  <div class="q-fade-top"></div>
+  <div class="q-fade-bottom"></div>
+  <div class="q-fade-left"></div>
+  <div class="q-fade-right"></div>
 </div>
 
-<!-- BOTTOM -->
-<div class="bottom-section">
-
-  <!-- Prizes -->
+<!-- ★ 底部文字区 ★ -->
+<div class="bottom-zone">
+  <!-- 奖项 -->
   <div class="prize-row">
     <div class="prize-card pc-gold">
-      <div class="p-emoji">👑</div>
-      <div class="p-rank rank-gold">CHAMPION</div>
-      <div class="p-amount">$300万</div>
+      <div class="p-icon">👑</div>
+      <div class="p-name n-gold">冠　军</div>
+      <div class="p-cash">$300万</div>
       <div class="p-token">+ BFC 100万枚</div>
     </div>
     <div class="prize-card pc-silver">
-      <div class="p-emoji">🥈</div>
-      <div class="p-rank rank-silver">1ST RUNNER-UP</div>
-      <div class="p-amount">$50万</div>
+      <div class="p-icon">🥈</div>
+      <div class="p-name n-silver">亚　军</div>
+      <div class="p-cash">$50万</div>
       <div class="p-token">+ BFC 30万枚</div>
     </div>
     <div class="prize-card pc-bronze">
-      <div class="p-emoji">🥉</div>
-      <div class="p-rank rank-bronze">2ND RUNNER-UP</div>
-      <div class="p-amount">$10万</div>
+      <div class="p-icon">🥉</div>
+      <div class="p-name n-bronze">季　军</div>
+      <div class="p-cash">$10万</div>
       <div class="p-token">+ BFC 5万枚</div>
     </div>
   </div>
 
-  <!-- Timeline -->
-  <div class="timeline-strip">
-    <div class="ts-label">✦ 赛程时间线</div>
-    <div class="ts-items">
-      <div class="ts-item">
-        <div class="ts-date">7月</div>
-        <div class="ts-event">全球<br/>海选报名</div>
-      </div>
-      <div class="ts-arrow">›</div>
-      <div class="ts-item">
-        <div class="ts-date">7月底</div>
-        <div class="ts-event">500人<br/>Token开盘</div>
-      </div>
-      <div class="ts-arrow">›</div>
-      <div class="ts-item">
-        <div class="ts-date">8月</div>
-        <div class="ts-event">影响力<br/>周赛</div>
-      </div>
-      <div class="ts-arrow">›</div>
-      <div class="ts-item">
-        <div class="ts-date">9月</div>
-        <div class="ts-event">Vegas<br/>总决赛</div>
-      </div>
+  <!-- 时间线 -->
+  <div class="timeline-bar">
+    <div class="tl-label">✦ 赛程时间线</div>
+    <div class="tl-row">
+      <div class="tl-step"><div class="tl-month">7月</div><div class="tl-event">全球<br/>海选报名</div></div>
+      <div class="tl-arrow">›</div>
+      <div class="tl-step"><div class="tl-month">7月底</div><div class="tl-event">500人<br/>代币开盘</div></div>
+      <div class="tl-arrow">›</div>
+      <div class="tl-step"><div class="tl-month">8月</div><div class="tl-event">影响力<br/>周赛</div></div>
+      <div class="tl-arrow">›</div>
+      <div class="tl-step"><div class="tl-month">9月</div><div class="tl-event">拉斯维加斯<br/>总决赛</div></div>
     </div>
   </div>
 
   <!-- CTA -->
   <div class="cta-row">
-    <div class="cta-left">
-      <div class="cta-title">立即报名参赛</div>
-      <div class="cta-sub">全球女性 · 18岁以上 · 5万粉丝以上<br/>海选免费 · 全球开放 · 三轮晋级制</div>
+    <div class="cta-text">
+      <div class="cta-main">立即免费报名参赛</div>
+      <div class="cta-sub">全球女性 · 18岁以上 · 任意平台5万粉丝以上<br/>海选免费 · 全球开放 · 三轮晋级赛制</div>
       <div class="cta-url">🌐 roadshow.xavvi.com</div>
     </div>
-    <div class="qr-wrap">
-      <img src="qrcode.png" alt="QR Code"/>
+    <div class="qr-box">
+      <img src="qrcode.png" alt="扫码报名"/>
     </div>
   </div>
 </div>
 
-<div class="disclaimer">BFC 与 Creator Token 均为平台功能性代币（Utility Token），不构成投资产品或证券。© 2026 Xavvi Group · Miss Crypto International</div>
+<div class="disclaimer">BFC 与创作者代币均为平台功能性代币，不构成投资产品或证券。© 2026 Xavvi Group · Miss Crypto International · 版权所有</div>
 
 </body>
 </html>
