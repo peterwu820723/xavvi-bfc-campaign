@@ -21,6 +21,12 @@
     position:relative;
     overflow:hidden;
   }
+  .hero-bg-img{
+    position:absolute;inset:0;
+    background:url(miss-crypto-queen2.png) center top/cover no-repeat;
+    opacity:0.18;
+    filter:saturate(0.6);
+  }
   .hero::before{
     content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);
     width:600px;height:300px;
@@ -138,7 +144,7 @@
 <body>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero"><div class="hero-bg-img"></div>
   <img src="logo.png" alt="Xavvi" style="height:48px;margin-bottom:28px;display:block;margin-left:auto;margin-right:auto;"/>
   <div class="hero-badge">🌏 2026 Web4 网红经济发布会 · 诚邀出席</div>
   <h1>Web4 网红经济发布会</h1>
